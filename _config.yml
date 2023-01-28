@@ -41,11 +41,17 @@ collections:
   leafs:
     output: true
     permalink: /:slug:output_ext
+  maps:
+    output: true
 defaults:
   - scope:
       type: leafs
     values:
       layout: page
+  - scope:
+      type: maps
+    values:
+      layout: post
 
 # Exclude from processing.
 # The following items will not be processed, by default.
