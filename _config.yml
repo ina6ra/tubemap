@@ -36,6 +36,17 @@ theme: jekyll-theme-architect
 plugins:
   - jekyll-feed
 
+collections_dir: notes
+collections:
+  leafs:
+    output: true
+    permalink: /:slug:output_ext
+defaults:
+  - scope:
+      type: leafs
+    values:
+      layout: page
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

@@ -5,6 +5,13 @@ title: Home
 
 <!-- <h2>{{ page.title }}</h2> -->
 
+<h2>Pages</h2>
+<ul>
+  {% for p in site.leafs %}
+  <li><a href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a></li>
+  {% endfor %}
+</ul>
+
 <h2>Blogs</h2>
 {% for a in site.archives %}
 <h3><a href="{{ site.baseurl }}{{ a.url }}">{{ a.title }}</a></h3>
