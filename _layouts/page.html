@@ -1,0 +1,10 @@
+---
+layout: default
+---
+
+<h2>{{ page.title }}</h2>
+{% if page.url contains 'articles' %}
+<blockquote>本記事は <a href="https://zenn.dev/ina6ra{{page.url}}", target="_blank">Zenn</a> でも公開中です。</blockquote>
+{% endif %}
+
+{{ content }}
