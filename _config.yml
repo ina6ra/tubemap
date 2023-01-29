@@ -38,12 +38,19 @@ plugins:
 
 collections_dir: notes
 collections:
+  posts:
+    output: true
+    permalink: /posts/:slug:output_ext
   leafs:
     output: true
     permalink: /:slug:output_ext
   maps:
     output: true
 defaults:
+  - scope:
+      type: posts
+    values:
+      layout: post
   - scope:
       type: leafs
     values:
