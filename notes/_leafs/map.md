@@ -10,9 +10,8 @@ title: 配信地域
   {% endfor %}
 </ul>
 
-<div id="map" style="margin: 5px auto; width: 650px; height: 400px"></div>
-<div style="text-align: center; font-size: large;">
-  Random Weather Map
+<div id="map_container">
+  <div id="map"></div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@googlemaps/markermanager/dist/index.umd.min.js"></script>
