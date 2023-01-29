@@ -37,6 +37,7 @@ function initMap() {
         lng: l.lng,
         url: l.url,
         title: l.title,
+        tags: l.tags,
       };
     }).map(l => {
       var marker = new google.maps.Marker({
@@ -46,7 +47,7 @@ function initMap() {
       google.maps.event.addListener(marker, 'click', () => {
         if (infowindow) infowindow.close();
         infowindow = new google.maps.InfoWindow({
-          content: `<a href='${baseurl}${l.url}'>${l.title}</a>`,
+          content:`<a href='${baseurl}${l.url}'>${l.title}</a><br>${l.tags}`,
         });
         infowindow.open(map, marker);
       });
