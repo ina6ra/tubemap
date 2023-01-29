@@ -22,13 +22,22 @@ function initMap() {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     zoom: 4,
   });
+  var infowindow = null;
   var mgr = new google.maps.plugins.markermanager.MarkerManager(map, {});
   google.maps.event.addListener(mgr, 'loaded', function() {
     var list = {{site.maps|jsonify}}.map(l => {
-      return new google.maps.Marker({
+      var marker = new google.maps.Marker({
         position: new google.maps.LatLng(l.lat, l.lng),
         title: l.title,
       });
+      google.maps.event.addListener(marker, 'click', () => {
+        if (infowindow) infowindow.close();
+        infowindow = new google.maps.InfoWindow({
+          content: `<a href='${l.url}'>${l.title}</a>`,
+        });
+        infowindow.open(map, marker);
+      });
+      return marker;
     });
     mgr.addMarkers(list, 3);
     mgr.refresh();
