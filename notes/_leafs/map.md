@@ -29,7 +29,9 @@ function initMap() {
   baseurl = baseurl.join('/');
   var mgr = new google.maps.plugins.markermanager.MarkerManager(map, {});
   google.maps.event.addListener(mgr, 'loaded', () => {
-    var list = {{site.maps|jsonify}}.map(l => {
+    var list = {{site.maps|jsonify}}.filter(l => {
+      return (l.cid || l.uid);
+    }).map(l => {
       return {
         lat: l.lat,
         lng: l.lng,
