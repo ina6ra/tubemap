@@ -6,7 +6,7 @@ price: 48円
 thumbnail: https://img.youtube.com/vi/pGTJ_y_tii0/mqdefault.jpg
 date: 2023-01-12
 vid: pGTJ_y_tii0
-width: 80%
+width: 90%
 ---
 
 ## 虚無チヂミ
