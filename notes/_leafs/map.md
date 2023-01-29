@@ -14,6 +14,7 @@ title: 配信地域
   <div id="map"></div>
 </div>
 
+<script src="https://maps.google.com/maps/api/js?sensor=true&callback=initMap" async defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@googlemaps/markermanager/dist/index.umd.min.js"></script>
 <script type="text/javascript">
 function initMap() {
@@ -27,8 +28,15 @@ function initMap() {
   baseurl.pop();
   baseurl = baseurl.join('/');
   var mgr = new google.maps.plugins.markermanager.MarkerManager(map, {});
-  google.maps.event.addListener(mgr, 'loaded', function() {
+  google.maps.event.addListener(mgr, 'loaded', () => {
     var list = {{site.maps|jsonify}}.map(l => {
+      return {
+        lat: l.lat,
+        lng: l.lng,
+        url: l.url,
+        title: l.title,
+      };
+    }).map(l => {
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(l.lat, l.lng),
         title: l.title,
@@ -47,4 +55,3 @@ function initMap() {
   });
 }
 </script>
-<script async defer type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true&callback=initMap"></script>
