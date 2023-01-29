@@ -1,0 +1,7 @@
+{
+  "name"              : "YoutuberMap",
+  "short_name"        : "TubeMap",
+  "description"       : "",
+  "start_url"         : "https://ina6ra.github.io/tubemap/",
+  "display"           : "standalone"
+}
