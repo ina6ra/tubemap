@@ -23,6 +23,9 @@ function initMap() {
     zoom: 4,
   });
   var infowindow = null;
+  var baseurl = location.href.split(/\//);
+  baseurl.pop();
+  baseurl = baseurl.join('/');
   var mgr = new google.maps.plugins.markermanager.MarkerManager(map, {});
   google.maps.event.addListener(mgr, 'loaded', function() {
     var list = {{site.maps|jsonify}}.map(l => {
@@ -33,7 +36,7 @@ function initMap() {
       google.maps.event.addListener(marker, 'click', () => {
         if (infowindow) infowindow.close();
         infowindow = new google.maps.InfoWindow({
-          content: `<a href='${l.url}'>${l.title}</a>`,
+          content: `<a href='${baseurl}${l.url}'>${l.title}</a>`,
         });
         infowindow.open(map, marker);
       });
