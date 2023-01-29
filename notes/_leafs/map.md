@@ -19,7 +19,7 @@ title: 配信地域
 <script type="text/javascript">
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: new google.maps.LatLng(35.474917, 135.549228),
+    center: new google.maps.LatLng(35.474917, 136.549228),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     zoom: 4,
   });
