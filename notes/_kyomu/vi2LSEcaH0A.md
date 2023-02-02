@@ -1,15 +1,15 @@
 ---
 layout: kyomu
 title: 虚無ハンバーグ
+vid: vi2LSEcaH0A
 url: https://www.youtube.com/watch?v=vi2LSEcaH0A
-price: 100円
 thumbnail: https://img.youtube.com/vi/vi2LSEcaH0A/mqdefault.jpg
 date: 2022-05-30
-vid: vi2LSEcaH0A
+price: 100円
 ---
 
 ## 虚無ハンバーグ
-[YouTube link](https://www.youtube.com/watch?v=vi2LSEcaH0A)
-```vid
-https://www.youtube.com/watch?v=vi2LSEcaH0A
-```
+
+<div class="youtube">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/vi2LSEcaH0A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
