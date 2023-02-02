@@ -1,4 +1,3 @@
-
 ---
 layout: kyomu
 title: 虚無チヂミ
