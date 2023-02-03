@@ -2,8 +2,7 @@
 layout: kyomu
 title: 虚無チヂミ
 vid: pGTJ_y_tii0
-url: https://www.youtube.com/watch?v=pGTJ_y_tii0
-thumbnail: https://img.youtube.com/vi/pGTJ_y_tii0/mqdefault.jpg
+image: https://img.youtube.com/vi/pGTJ_y_tii0/mqdefault.jpg
 date: 2023-01-12
 price: 48円
 ---

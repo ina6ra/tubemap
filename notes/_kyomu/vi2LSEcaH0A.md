@@ -2,8 +2,7 @@
 layout: kyomu
 title: 虚無ハンバーグ
 vid: vi2LSEcaH0A
-url: https://www.youtube.com/watch?v=vi2LSEcaH0A
-thumbnail: https://img.youtube.com/vi/vi2LSEcaH0A/mqdefault.jpg
+image: https://img.youtube.com/vi/vi2LSEcaH0A/mqdefault.jpg
 date: 2022-05-30
 price: 100円
 ---
