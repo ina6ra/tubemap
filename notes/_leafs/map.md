@@ -18,18 +18,18 @@ title: 配信地域
 <script src="https://cdn.jsdelivr.net/npm/@googlemaps/markermanager/dist/index.umd.min.js"></script>
 <script type="text/javascript">
 function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
+  let map = new google.maps.Map(document.getElementById('map'), {
     center: new google.maps.LatLng(35.474917, 136.549228),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     zoom: 4,
   });
-  var infowindow = null;
-  var baseurl = location.href.split(/\//);
+  let infowindow = null;
+  let baseurl = location.href.split(/\//);
   baseurl.pop();
   baseurl = baseurl.join('/');
-  var mgr = new google.maps.plugins.markermanager.MarkerManager(map, {});
+  let mgr = new google.maps.plugins.markermanager.MarkerManager(map, {});
   google.maps.event.addListener(mgr, 'loaded', () => {
-    var list = {{site.maps|jsonify}}.filter(l => {
+    let list = {{site.maps|jsonify}}.filter(l => {
       return (l.cid || l.uid);
     }).map(l => {
       return {
@@ -40,7 +40,7 @@ function initMap() {
         tags: l.tags,
       };
     }).map(l => {
-      var marker = new google.maps.Marker({
+      let marker = new google.maps.Marker({
         position: new google.maps.LatLng(l.lat, l.lng),
         title: l.title,
       });
