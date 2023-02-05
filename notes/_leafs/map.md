@@ -12,6 +12,11 @@ title: 配信地域
 </ul>
 {% endcomment %}
 
+<select id="area_box" size="1">
+  <option value="日本" selected>日本</option>
+  <option value="北米">北米</option>
+</select>
+
 <div id="map_container">
   <div id="map"></div>
 </div>
@@ -19,11 +24,18 @@ title: 配信地域
 <script src="https://maps.google.com/maps/api/js?sensor=true&callback=initMap" async defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@googlemaps/markermanager/dist/index.umd.min.js"></script>
 <script type="text/javascript">
-function initMap(ct=0) {
-  let centers = [
-    [38.474917, 136.549228, 5],
-  ];
-  ct = centers[ct];
+document.addEventListener('DOMContentLoaded', () => {
+  var elem = document.getElementById('area_box');
+  elem.addEventListener('change', () => {
+    initMap(elem.value, elem.value);
+  }, false);
+}, false);
+function initMap(ar='日本') {
+  let ct = {
+    '日本': [38.474917, 136.549228, 5],
+    '北米': [39.878114, -96.629798, 4],
+  };
+  ct = ct[ar];
   let map = new google.maps.Map(document.getElementById('map'), {
     center: new google.maps.LatLng(ct[0], ct[1]),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -36,6 +48,8 @@ function initMap(ct=0) {
   let mgr = new google.maps.plugins.markermanager.MarkerManager(map, {});
   google.maps.event.addListener(mgr, 'loaded', () => {
     let list = {{site.maps|jsonify}}.filter(l => {
+      return l.area === ar;
+    }).filter(l => {
       return (l.cid || l.uid);
     }).map(l => {
       let marker = new google.maps.Marker({
