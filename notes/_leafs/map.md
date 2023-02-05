@@ -17,11 +17,15 @@ title: 配信地域
 <script src="https://maps.google.com/maps/api/js?sensor=true&callback=initMap" async defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@googlemaps/markermanager/dist/index.umd.min.js"></script>
 <script type="text/javascript">
-function initMap() {
+function initMap(ct=0) {
+  let centers = [
+    [38.474917, 136.549228, 5],
+  ];
+  ct = centers[ct];
   let map = new google.maps.Map(document.getElementById('map'), {
-    center: new google.maps.LatLng(35.474917, 136.549228),
+    center: new google.maps.LatLng(ct[0], ct[1]),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    zoom: 4,
+    zoom: ct[2],
   });
   let infowindow = null;
   let baseurl = location.href.split(/\//);
