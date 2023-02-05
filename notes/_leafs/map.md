@@ -4,11 +4,13 @@ title: 配信地域
 ---
 
 <h2>Maps</h2>
+{% comment %}
 <ul>
   {% for p in site.maps %}
   <li><a href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a></li>
   {% endfor %}
 </ul>
+{% endcomment %}
 
 <div id="map_container">
   <div id="map"></div>
@@ -35,14 +37,6 @@ function initMap(ct=0) {
   google.maps.event.addListener(mgr, 'loaded', () => {
     let list = {{site.maps|jsonify}}.filter(l => {
       return (l.cid || l.uid);
-    }).map(l => {
-      return {
-        lat: l.lat,
-        lng: l.lng,
-        url: l.url,
-        title: l.title,
-        tags: l.tags,
-      };
     }).map(l => {
       let marker = new google.maps.Marker({
         position: new google.maps.LatLng(l.lat, l.lng),
