@@ -15,10 +15,11 @@ title: 配信地域
 
 <script src="https://maps.google.com/maps/api/js?sensor=true&callback=initMap" async defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@googlemaps/markermanager/dist/index.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ua-parser-js/src/ua-parser.min.js"></script>
 <script type="text/javascript">
 let areas = {
   '日本': [38.474917, 136.549228, 5],
-  '北米': [39.878114, -96.629798, 4],
+  '北米': [39.878114, -96.629798, 4], // PC以外はinitMapで3にする
 };
 document.addEventListener('DOMContentLoaded', () => {
   let elem = document.getElementById('area_box');
@@ -32,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }, false);
 }, false);
 function initMap(ar='日本') {
+  let parser = new UAParser().getResult();
+  areas['北米'][2] = (!parser.device.type) ? 4: 3;
   let ct = areas[ar];
   let map = new google.maps.Map(document.getElementById('map'), {
     center: new google.maps.LatLng(ct[0], ct[1]),
