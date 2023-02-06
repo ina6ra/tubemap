@@ -4,13 +4,8 @@ title: 配信地域
 ---
 
 <h2>Maps</h2>
-{% comment %}
-<ul>
-  {% for p in site.maps %}
-  <li><a href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a></li>
-  {% endfor %}
-</ul>
-{% endcomment %}
+
+<ul id="map_list"></ul>
 
 <select id="area_box"></select>
 
@@ -50,11 +45,21 @@ function initMap(ar='日本') {
   baseurl = baseurl.join('/');
   let mgr = new google.maps.plugins.markermanager.MarkerManager(map, {});
   google.maps.event.addListener(mgr, 'loaded', () => {
+    let ml = document.getElementById('map_list');
+    ml.innerHTML = '';
     let list = {{site.maps|jsonify}}.filter(l => {
       return l.area === ar;
     }).filter(l => {
       return (l.cid || l.uid);
-    }).map(l => {
+    });
+    list.sort((a, b) => a.lng < b.lng);
+    list.forEach(l => {
+      ml.insertAdjacentHTML(
+        'beforeend',
+        `<li><a href='${baseurl}${l.url}'>${l.title}</a></li>`,
+      );
+    });
+    list = list.map(l => {
       let marker = new google.maps.Marker({
         position: new google.maps.LatLng(l.lat, l.lng),
         title: l.title,
