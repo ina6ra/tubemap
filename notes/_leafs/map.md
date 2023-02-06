@@ -12,8 +12,7 @@ title: 配信地域
 </ul>
 {% endcomment %}
 
-<select id="area_box" size="1">
-</select>
+<select id="area_box"></select>
 
 <div id="map_container">
   <div id="map"></div>
