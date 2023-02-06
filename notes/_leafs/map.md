@@ -5,9 +5,9 @@ title: 配信地域
 
 <h2>Maps</h2>
 
-<ul id="map_list"></ul>
-
 <select id="area_box"></select>
+
+<ul id="map_list"></ul>
 
 <div id="map_container">
   <div id="map"></div>
