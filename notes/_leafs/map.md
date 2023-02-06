@@ -13,8 +13,6 @@ title: 配信地域
 {% endcomment %}
 
 <select id="area_box" size="1">
-  <option value="日本" selected>日本</option>
-  <option value="北米">北米</option>
 </select>
 
 <div id="map_container">
@@ -24,18 +22,24 @@ title: 配信地域
 <script src="https://maps.google.com/maps/api/js?sensor=true&callback=initMap" async defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@googlemaps/markermanager/dist/index.umd.min.js"></script>
 <script type="text/javascript">
+let areas = {
+  '日本': [38.474917, 136.549228, 5],
+  '北米': [39.878114, -96.629798, 4],
+};
 document.addEventListener('DOMContentLoaded', () => {
-  var elem = document.getElementById('area_box');
+  let sl = document.getElementById('area_box');
+  Object.keys(areas).forEach(a => {
+    let op = document.createElement('option');
+    op.appendChild(document.createTextNode(a));
+    sl.appendChild(op);
+  });
+  let elem = document.getElementById('area_box');
   elem.addEventListener('change', () => {
-    initMap(elem.value, elem.value);
+    initMap(elem.value);
   }, false);
 }, false);
 function initMap(ar='日本') {
-  let ct = {
-    '日本': [38.474917, 136.549228, 5],
-    '北米': [39.878114, -96.629798, 4],
-  };
-  ct = ct[ar];
+  let ct = areas[ar];
   let map = new google.maps.Map(document.getElementById('map'), {
     center: new google.maps.LatLng(ct[0], ct[1]),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
