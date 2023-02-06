@@ -21,13 +21,12 @@ let areas = {
   '北米': [39.878114, -96.629798, 4],
 };
 document.addEventListener('DOMContentLoaded', () => {
-  let sl = document.getElementById('area_box');
+  let elem = document.getElementById('area_box');
   Object.keys(areas).forEach(a => {
     let op = document.createElement('option');
     op.appendChild(document.createTextNode(a));
-    sl.appendChild(op);
+    elem.appendChild(op);
   });
-  let elem = document.getElementById('area_box');
   elem.addEventListener('change', () => {
     initMap(elem.value);
   }, false);
