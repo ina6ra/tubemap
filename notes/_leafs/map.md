@@ -55,7 +55,7 @@ function initMap(ar='日本') {
     list.forEach(l => {
       ml.insertAdjacentHTML(
         'beforeend',
-        `<li><a href='${baseurl}${l.url}'>${l.title}</a></li>`,
+        `<li><a href='${baseurl}${l.url}'>${l.title}</a>：${l.tags.join(', ')}</li>`,
       );
     });
     list = list.map(l => {
