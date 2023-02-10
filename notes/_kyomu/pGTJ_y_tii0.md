@@ -4,7 +4,7 @@ title: 虚無チヂミ
 vid: pGTJ_y_tii0
 image: https://img.youtube.com/vi/pGTJ_y_tii0/mqdefault.jpg
 date: 2023-01-12
-price: 48円
+price: 48
 ---
 
 ## 虚無チヂミ

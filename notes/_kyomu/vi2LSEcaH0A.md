@@ -4,7 +4,7 @@ title: 虚無ハンバーグ
 vid: vi2LSEcaH0A
 image: https://img.youtube.com/vi/vi2LSEcaH0A/mqdefault.jpg
 date: 2022-05-30
-price: 100円
+price: 101
 ---
 
 ## 虚無ハンバーグ
