@@ -1,0 +1,29 @@
+name: Kyomu Recipe
+description: Add Kyomu series
+title: 虚無
+labels:
+  - kyomu
+body:
+  - type: input
+    id: vid
+    attributes:
+      label: vid
+      description: Youtube URL
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: date
+      description: Posted date
+      placeholder: "2022-06-15"
+    validations:
+      required: true
+  - type: input
+    id: price
+    attributes:
+      label: price
+      description: Material cost
+      placeholder: 77円
+    validations:
+      required: false
