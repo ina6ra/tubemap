@@ -4,7 +4,7 @@ title: 虚無チャーハン
 vid: a3X9aj0IWV0
 image: https://img.youtube.com/vi/a3X9aj0IWV0/mqdefault.jpg
 date: 2022-09-11
-price:98
+price: 98
 ---
 
 ## 虚無チャーハン
