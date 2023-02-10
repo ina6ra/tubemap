@@ -9,6 +9,8 @@ title: 虚無レシピ
 {% for p in items %}
 <h2>{{ p.title }}</h2>
 <p>
-  <a href="{{ site.baseurl }}{{ p.url }}"><img src="{{ p.image }}" /></a>
+  <a href="{{ site.baseurl }}{{ p.url }}">
+    <img src="https://img.youtube.com/vi/{{ p.vid }}/mqdefault.jpg" />
+  </a>
 </p>
 {% endfor %}
