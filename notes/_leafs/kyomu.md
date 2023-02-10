@@ -7,8 +7,8 @@ title: 虚無レシピ
 
 {% assign items = site.kyomu | sort: 'date' | reverse %}
 {% for p in items %}
-<h2>{{ p.title }}</h2>
-{{ p.date| date: "%Y-%m-%d" }}<br>
+<h3>{{ p.title }}</h3>
+{{ p.date| date: "%Y-%m-%d" }}、{{ p.price }}円<br>
 <p>
   <a href="{{ site.baseurl }}{{ p.url }}">
     <img src="https://img.youtube.com/vi/{{ p.vid }}/mqdefault.jpg" />
