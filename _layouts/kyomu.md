@@ -2,6 +2,8 @@
 layout: default
 ---
 
+{{ page.date | date: "%Y-%m-%d" }} 公開<br>
+
 {{ content }}
 
 <br>
